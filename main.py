@@ -6,57 +6,26 @@ from googlesearch import search
 # Lista elementów zescrapowanych z tabeli
 from googlesearch import search
 
-# for url in search('"Breaking Code" WordPress blog', num=10, stop=20, pause=1):
-#     print(url)
-
-
-# exit()
-#
-# # Lista elementów zescrapowanych z tabeli
-# scraped_elements = ["Python", "C", "C++", "Java", "C#", "JavaScript"]
-#
-# # Słownik do przechowywania wyników wyszukiwania dla każdego elementu
-# search_results = {}
-#
-# # Iteracja przez każdy element zescrapowany
-# for element in scraped_elements:
-#     try:
-#         # Wyszukiwanie w Google i pobranie tylko pierwszego wyniku
-#         print("CO JEST")
-#         query = element + " additional information"
-#         results = search(query, num=1, stop=1, pause=1)  # Pause 5 sekund między żądaniami
-#         # Dodanie wyników do słownika
-#         search_results[element] = list(results)
-#     except Exception as e:
-#         print(f"Błąd podczas wyszukiwania informacji dla elementu {element}: {e}")
-#
-# # Wyświetlenie wyników wyszukiwania dla każdego elementu
-# for element, results in search_results.items():
-#     print(f"Dodatkowe informacje dla: {element}")
-#     if results:
-#         print(results[0])
-#     else:
-#         print("Brak wyników.")
-#     print()
-#
-# exit()
+GIT_URL = "https://github.com/University-trip/awww1"
 
 
 def search_info_about_language(language_name, lang_urls):
-    if language_name not in lang_urls:
-        lang_urls[language_name] = []
-
     query = language_name + " description"
-    for j in search(query, num=2, stop=2, pause=0.5):
+    for j in search(query, num=2, stop=2, pause=1):
         lang_urls[language_name].append(j)
         # print(j)
+
 
 class Markdown:
     filename = 'output.md'
     file = None
+
+    def __init__(self, name='output.md'):
+        print(name)
+        self.file = open(name, 'w', encoding='utf-8')
+
     def open(self):
         self.file = open(self.filename, 'w', encoding='utf-8')
-
 
     def write(self, text):
         self.file.write(text)
@@ -69,6 +38,18 @@ class Markdown:
         self.file.close()
 
 
+def scrape_subpage(lang, file_handler):
+    lang_urls = {}
+    # See more
+    # file_handler.write("See more:<br>")
+    # Przykład użycia
+    lang_urls[lang] = []
+    file_src = lang+".md"
+    print(file_src + "HEELO")
+    return
+    file = Markdown(file_src)
+    # search_info_about_language(lang, lang_urls)
+
 
 # Funkcja do pobierania i zescrapowania danych z witryny
 def scrape_website(url, gen_url):
@@ -78,7 +59,6 @@ def scrape_website(url, gen_url):
     # Sprawdzenie czy pobranie danych zakończyło się sukcesem
     if response.status_code != 200:
         print("Nie można pobrać strony.")
-
 
     # Parsowanie zawartości strony za pomocą BeautifulSoup
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -91,16 +71,18 @@ def scrape_website(url, gen_url):
     # print(soup)
     # print(languages_table)
     header = "Top programming languages\n"
-    lang_urls = {}
+
     file_handler = Markdown()
-    file_handler.open()
+    # file_handler.open()
 
     # generate markdown
     if not languages_table:
         return None
     # Otwarcie pliku markdown do zapisu
     # with open('output.md', 'w', encoding='utf-8') as file:
-    file_handler.write("## "+header)
+
+    idx = 0
+    file_handler.write("## " + header)
     # Iteracja przez wiersze tabeli
     for row in languages_table.find_all('tr'):
         # Pobranie wszystkich komórek w danym wierszu
@@ -118,7 +100,7 @@ def scrape_website(url, gen_url):
                 # Sprawdzenie, czy komórka zawiera klasę 'td-top20'
                 if 'td-top20' in cell.get('class', []):
                     img_src = cell.find('img')['src']
-                    cell_data.append(f'![Python Logo]({gen_url+img_src})')
+                    cell_data.append(f'![Python Logo]({gen_url + img_src})')
                     continue  # Pomijanie komórki
                 # Sprawdzenie, czy komórka zawiera obrazek w górę
                 img_upup = cell.find('img', {'alt': 'change',
@@ -146,21 +128,35 @@ def scrape_website(url, gen_url):
                 # Jeśli komórka nie zawiera obrazka, pobierz tekst
                 cell_data.append(cell.get_text().strip())
             lang = cell_data[3]
-            if lang == "Programming Language":
-                continue
-            print(cell_data)
+            skip = 0
+            if idx == 0:
+                skip = 1
+                cell_data.insert(3, "Img")
+                cell_data.append("Description")
+            else:
+                cell_data.append("[Desc](/"+lang + ".md)")
+
+            idx += 1
+
             # Tworzenie wiersza w pliku markdown z danymi z komórek
             # Dla przykładu używamy formatu | dane1 | dane2 | dane3 |
             markdown_row = "| " + " | ".join(cell_data) + " |"
             # Zapisanie wiersza do pliku
-            file_handler.write(markdown_row + '<br>\n')
+            file_handler.write(markdown_row + '\n')
 
-            # See more
-            file_handler.write("See more:<br>")
-            # Przykład użycia
-            search_info_about_language(lang, lang_urls)
-            urls_row = " <br> ".join(lang_urls[lang])
-            file_handler.write(urls_row + ' <br>\n')
+            if skip == 1:
+                markdown_row = "|"
+                for _ in cell_data:
+                    markdown_row += "-|"
+                # Zapisanie wiersza do pliku
+                file_handler.write(markdown_row + '\n')
+                continue
+
+            # print(cell_data)
+            print(lang)
+            scrape_subpage(lang, file_handler)
+
+            # nastepna iteracja
 
 
     print("Plik markdown został wygenerowany.")
