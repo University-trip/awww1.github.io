@@ -11,7 +11,7 @@ fwefwefwef
 
 link do listy jezykow
 
-![Python Logo](/output2.md)
+[Opis](/output.md)
 
 
 
