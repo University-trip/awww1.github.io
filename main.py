@@ -1,41 +1,55 @@
 import requests
 from bs4 import BeautifulSoup
 
-from googlesearch import search
-
-# Lista elementów zescrapowanych z tabeli
-from googlesearch import search
+# from googlesearch import search
+#
+# # Lista elementów zescrapowanych z tabeli
+# from googlesearch import search
 
 GIT_URL = "https://github.com/University-trip/awww1"
+from duckduckgo_search import DDGS
+
+def search_info_about_language(language_name):
+    # print("xd")
+    query = language_name + " programming description"
+    results = DDGS().text(language_name, max_results=2)
+    print(results)
+    return results
+
+    # for j in search(query, num=2, stop=2, pause=1):
+    #     lang_urls[language_name].append(j)
+    #     # print(j)
 
 
-def search_info_about_language(language_name, lang_urls):
-    query = language_name + " description"
-    for j in search(query, num=2, stop=2, pause=1):
-        lang_urls[language_name].append(j)
-        # print(j)
-
+# res = search_info_about_language("python")
+# exit()
 
 class Markdown:
     filename = 'output.md'
     file = None
+    closed = 0
 
     def __init__(self, name='output.md'):
         print(name)
-        self.file = open(name, 'w', encoding='utf-8')
+        self.filename = name.replace('/', '_').replace(' ', '_')
+        self.file = open(self.filename, 'w', encoding='utf-8')
+
 
     def open(self):
+        self.closed = 0
         self.file = open(self.filename, 'w', encoding='utf-8')
 
     def write(self, text):
         self.file.write(text)
 
     def close(self):
+        self.closed = 1
         self.file.close()
 
     def __del__(self):
         # Zamknięcie pliku w destruktorze klasy
-        self.file.close()
+        if self.closed == 0:
+            self.file.close()
 
 
 def scrape_subpage(lang, file_handler):
@@ -46,9 +60,26 @@ def scrape_subpage(lang, file_handler):
     lang_urls[lang] = []
     file_src = lang+".md"
     print(file_src + "HEELO")
-    return
+    # return
     file = Markdown(file_src)
-    # search_info_about_language(lang, lang_urls)
+    result = search_info_about_language(lang)
+    first_r = result[0]
+    post = {
+        "title":first_r["title"],
+        "body":first_r['body'],
+        "url": first_r['href']
+    }
+    file.write("## Description about "+ lang+"\n\n")
+    file.write(post["body"])
+    file.write("\n\nMore:\n\n")
+    for row in result:
+        url = row["href"]
+        file.write("* "+url+"\n")
+
+    file.write("\n\n\n\nReturn: [Main page](/output.md)")
+
+    file.close()
+
 
 
 # Funkcja do pobierania i zescrapowania danych z witryny
@@ -64,7 +95,7 @@ def scrape_website(url, gen_url):
     soup = BeautifulSoup(response.text, 'html.parser')
 
     # Tutaj można znaleźć odpowiednie elementy HTML zawierające interesujące nas informacje
-    # i wyodrębnić z nich potrzebne dane
+    # i wyodrębnić z" nich potrzebne dane
     # Na przykład:
     # - dla listy języków programowania:
     languages_table = soup.find('table', class_='table table-striped table-top20')
@@ -88,6 +119,7 @@ def scrape_website(url, gen_url):
         # Pobranie wszystkich komórek w danym wierszu
         cells = row.find_all(['th', 'td'])
         cell_with_class = row.find(['th', 'td'], class_='td-top20')
+        # print(cells)
         # Jeśli wiersz zawiera komórki
         if cells:
             # Uzyskanie danych z komórek (np. tekst, linki do obrazków itp.)
@@ -127,7 +159,8 @@ def scrape_website(url, gen_url):
                     continue
                 # Jeśli komórka nie zawiera obrazka, pobierz tekst
                 cell_data.append(cell.get_text().strip())
-            lang = cell_data[3]
+            print(cell_data)
+            lang = cell_data[4]
             skip = 0
             if idx == 0:
                 skip = 1
