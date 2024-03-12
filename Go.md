@@ -1,11 +1,11 @@
 ## Description about Go
 
-Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.
+Go (programming language) Go is a statically typed, compiled high-level programming language designed at Google [12] by Robert Griesemer, Rob Pike, and Ken Thompson. [13] It is syntactically similar to C, but also has memory safety, garbage collection, structural typing, [7] and CSP -style concurrency. [14]
 
 More:
 
-* https://www.google.com/
 * https://en.wikipedia.org/wiki/Go_(programming_language)
+* https://www.youtube.com/@golang
 
 
 

@@ -161,13 +161,15 @@ def scrape_website(url, gen_url):
                 cell_data.append(cell.get_text().strip())
             print(cell_data)
             lang = cell_data[4]
+            sub_filename = lang.replace('/', '_').replace(' ', '_')
             skip = 0
             if idx == 0:
                 skip = 1
                 cell_data.insert(3, "Img")
                 cell_data.append("Description")
             else:
-                cell_data.append("[Desc](/"+lang + ".md)")
+
+                cell_data.append("[Desc](/"+sub_filename + ".md)")
 
             idx += 1
 
@@ -187,7 +189,7 @@ def scrape_website(url, gen_url):
 
             # print(cell_data)
             print(lang)
-            scrape_subpage(lang, file_handler)
+            scrape_subpage(sub_filename, file_handler)
 
             # nastepna iteracja
 

@@ -5,7 +5,7 @@ COBOL (/ ˈ k oʊ b ɒ l,-b ɔː l /; an acronym for "common business-oriented l
 More:
 
 * https://en.wikipedia.org/wiki/COBOL
-* https://www.tutorialspoint.com/cobol/index.htm
+* https://developer.ibm.com/languages/cobol/
 
 
 

@@ -10,12 +10,12 @@
 | 7 | 8 | ↑ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/SQL.png) | SQL | 1.92% | -0.04% | [Desc](/SQL.md) |
 | 8 | 10 | ↑ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Go.png) | Go | 1.56% | +0.32% | [Desc](/Go.md) |
 | 9 | 14 | ⇈ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Scratch.png) | Scratch | 1.46% | +0.45% | [Desc](/Scratch.md) |
-| 10 | 6 | ⇊ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Visual_Basic.png) | Visual Basic | 1.42% | -3.33% | [Desc](/Visual Basic.md) |
-| 11 | 11 |  | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Assembly_language.png) | Assembly language | 1.39% | +0.28% | [Desc](/Assembly language.md) |
+| 10 | 6 | ⇊ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Visual_Basic.png) | Visual Basic | 1.42% | -3.33% | [Desc](/Visual_Basic.md) |
+| 11 | 11 |  | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Assembly_language.png) | Assembly language | 1.39% | +0.28% | [Desc](/Assembly_language.md) |
 | 12 | 9 | ↓ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/PHP.png) | PHP | 1.32% | -0.29% | [Desc](/PHP.md) |
 | 13 | 12 | ↓ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/MATLAB.png) | MATLAB | 1.24% | +0.16% | [Desc](/MATLAB.md) |
 | 14 | 17 | ↑ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Fortran.png) | Fortran | 1.22% | +0.43% | [Desc](/Fortran.md) |
-| 15 | 13 | ↓ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Delphi_Object_Pascal.png) | Delphi/Object Pascal | 1.22% | +0.15% | [Desc](/Delphi/Object Pascal.md) |
+| 15 | 13 | ↓ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Delphi_Object_Pascal.png) | Delphi/Object Pascal | 1.22% | +0.15% | [Desc](/Delphi_Object_Pascal.md) |
 | 16 | 20 | ⇈ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Swift.png) | Swift | 1.08% | +0.38% | [Desc](/Swift.md) |
 | 17 | 19 | ↑ | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Rust.png) | Rust | 1.03% | +0.30% | [Desc](/Rust.md) |
 | 18 | 18 |  | ![Python Logo](https://www.tiobe.com/wp-content/themes/tiobe/tiobe-index/images/Ruby.png) | Ruby | 1.01% | +0.24% | [Desc](/Ruby.md) |

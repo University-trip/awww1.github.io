@@ -5,7 +5,7 @@ JavaScript (JS) is a lightweight interpreted (or just-in-time compiled) programm
 More:
 
 * https://developer.mozilla.org/en-US/docs/Web/javascript
-* https://www.w3schools.com/js/DEFAULT.asp
+* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript
 
 
 

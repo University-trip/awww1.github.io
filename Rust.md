@@ -5,7 +5,7 @@ Rust is in its 10th year and has now had over 375 content updates, with a guaran
 More:
 
 * https://store.steampowered.com/app/252490/Rust/
-* https://www.rust-lang.org/
+* https://rust.facepunch.com/
 
 
 

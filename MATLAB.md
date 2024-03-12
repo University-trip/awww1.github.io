@@ -5,7 +5,7 @@ MATLAB is a desktop and cloud-based platform for data analysis, algorithm develo
 More:
 
 * https://www.mathworks.com/products/matlab.html
-* https://www.mathworks.com/products/matlab-online.html
+* https://en.wikipedia.org/wiki/MATLAB
 
 
 
