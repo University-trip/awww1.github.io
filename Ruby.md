@@ -5,7 +5,7 @@ Ruby is a dynamic, open source language with a focus on simplicity and productiv
 More:
 
 * https://www.ruby-lang.org/en/
-* https://en.wikipedia.org/wiki/Ruby_(programming_language)
+* https://en.wikipedia.org/wiki/Ruby
 
 
 

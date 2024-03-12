@@ -1,11 +1,11 @@
 ## Description about Delphi_Object_Pascal
 
-Free Object Pascal Handbook by Marco Cantu. This newly updated 500-page eBook for Delphi 11 Alexandria is a complete guide to the current, modern Object Pascal programming language by best-selling Delphi books author and Delphi Senior Product Manager, Marco Cantú. It's a manual for new and existing Object Pascal developers and covers, among ...
+Delphi offers modern Object Pascal with native compilers and component libraries for Windows, macOS, iOS, Android and Linux. Delphi was originally written by Anders Hejlsberg before he moved to Microsoft to father C# Sharing a common ancestry, C# developers find themselves immediately at home in using Delphi. Full of modern language constructs ...
 
 More:
 
-* https://www.embarcadero.com/products/delphi/object-pascal-handbook
 * https://www.embarcadero.com/products/delphi/features/delphi
+* https://www.embarcadero.com/products/delphi/object-pascal-handbook
 
 
 

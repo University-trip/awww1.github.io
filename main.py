@@ -13,7 +13,7 @@ def search_info_about_language(language_name):
     # print("xd")
     query = language_name + " programming description"
     results = DDGS().text(language_name, max_results=2)
-    print(results)
+    # print(results)
     return results
 
     # for j in search(query, num=2, stop=2, pause=1):
@@ -30,7 +30,7 @@ class Markdown:
     closed = 0
 
     def __init__(self, name='output.md'):
-        print(name)
+        # print(name)
         self.filename = name.replace('/', '_').replace(' ', '_')
         self.file = open(self.filename, 'w', encoding='utf-8')
 
@@ -59,7 +59,7 @@ def scrape_subpage(lang, file_handler):
     # Przykład użycia
     lang_urls[lang] = []
     file_src = lang+".md"
-    print(file_src + "HEELO")
+    # print(file_src + "HEELO")
     # return
     file = Markdown(file_src)
     result = search_info_about_language(lang)
@@ -159,7 +159,7 @@ def scrape_website(url, gen_url):
                     continue
                 # Jeśli komórka nie zawiera obrazka, pobierz tekst
                 cell_data.append(cell.get_text().strip())
-            print(cell_data)
+            # print(cell_data)
             lang = cell_data[4]
             sub_filename = lang.replace('/', '_').replace(' ', '_')
             skip = 0
@@ -188,7 +188,7 @@ def scrape_website(url, gen_url):
                 continue
 
             # print(cell_data)
-            print(lang)
+            # print(lang)
             scrape_subpage(sub_filename, file_handler)
 
             # nastepna iteracja
@@ -197,6 +197,21 @@ def scrape_website(url, gen_url):
     print("Plik markdown został wygenerowany.")
 
 
+
+# HOME PAGE
+home_pg = "README.MD"
+file = Markdown(home_pg)
+text = """
+## Hello! 
+
+
+Let's talk about top programming languages. I prepared list of the top 20 programming languages:
+
+Check it here: [top20](/output.md)
+
+"""
+file.write(text)
+file.close()
 # URL do witryny z listą elementów do zescrapowania (można zmienić na odpowiedni dla danej witryny)
 url = "https://www.tiobe.com/tiobe-index/"
 gen_url = "https://www.tiobe.com"

@@ -5,7 +5,7 @@ Swift is a leading provider of messaging, standards and services for cross-borde
 More:
 
 * https://www.swift.com/
-* https://en.wikipedia.org/wiki/SWIFT
+* https://developer.apple.com/swift/
 
 
 
