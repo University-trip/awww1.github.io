@@ -76,7 +76,7 @@ def scrape_subpage(lang, file_handler):
         url = row["href"]
         file.write("* "+url+"\n")
 
-    file.write("\n\n\n\nReturn: [Main page](/output.md)")
+    file.write("\n\n\n\nReturn: [back](/output.md)")
 
     file.close()
 
