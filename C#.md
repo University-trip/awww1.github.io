@@ -5,7 +5,7 @@ C Sharp Programming at Wikibooks. C# ( / ˌsiː ˈʃɑːrp / see SHARP) [b] is a
 More:
 
 * https://en.wikipedia.org/wiki/C_Sharp_(programming_language)
-* https://en.wikipedia.org/wiki/C_Sharp_syntax
+* https://en.wikipedia.org/wiki/Null_coalescing_operator
 
 
 
